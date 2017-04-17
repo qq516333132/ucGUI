@@ -1,4 +1,4 @@
-#include <windows.h>
+//#include <windows.h>
 #include "LCD.h"
 #include "LCD_Private.h"              /* include LCDConf.h */
 #include "LCDSIM.h"

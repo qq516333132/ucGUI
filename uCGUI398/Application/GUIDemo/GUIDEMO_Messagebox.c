@@ -22,7 +22,7 @@ Purpose     : Messagebox samples
 #include "GUIDEMO.h"
 #include "LCD_ConfDefaults.h"
 #include "WM.h"
-#include "Dialog.h"
+//#include "Dialog.h"
 
 #if GUI_WINSUPPORT
 

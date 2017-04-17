@@ -2,8 +2,9 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-
+win32{
 LIBS += -lwinmm -lUser32 -lGDI32
+}
 
 INCLUDEPATH += Config/
 INCLUDEPATH += GUI/Core
@@ -733,13 +734,21 @@ SOURCES += GUI/WM/WM__SendMessage.c
 SOURCES += GUI/WM/WM__SendMessageIfEnabled.c
 SOURCES += GUI/WM/WM__SendMessageNoPara.c
 SOURCES += GUI/WM/WM__UpdateChildPositions.c
-SOURCES += Simulation/GUI_X_Win.c
+SOURCES +=
 #SOURCES += Simulation/LCDSIM.c
 #SOURCES += Simulation/WinMain.c
 SOURCES += Simulation/QMain.cpp
 
 SOURCES += Application/GUIDemo/GUIDEMO.c \
 	Simulation/dialogmain.cpp
+
+win32{
+SOURCES += Simulation/GUI_X_Win.cpp
+}
+
+linux{
+SOURCES += Simulation/GUI_X_Qt.cpp
+}
 
 FORMS += \
 	Simulation/dialogmain.ui
