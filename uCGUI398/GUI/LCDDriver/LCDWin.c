@@ -1,4 +1,7 @@
-//#include <windows.h>
+#if defined(_WIN32) || defined(WIN32) || defined(WIN64)
+#include <windows.h>
+#endif
+
 #include "LCD.h"
 #include "LCD_Private.h"              /* include LCDConf.h */
 #include "LCDSIM.h"
