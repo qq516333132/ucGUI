@@ -7,36 +7,36 @@
 #include "LCDConf.h"
 
 unsigned int LCD_Buffer[LCD_YSIZE][LCD_XSIZE];
-BITMAPINFO bmp;
+BITMAPINFO bmp; 
 
-void LCDSIM_Init(void)
+void LCDSIM_Init(void) 
 {
 	//初始化位图结构	
-	ZeroMemory(&bmp, sizeof(BITMAPINFO));
+	ZeroMemory(&bmp,   sizeof(BITMAPINFO));  
 
 	bmp.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 	bmp.bmiHeader.biWidth = LCD_XSIZE;   //位图宽度
 	bmp.bmiHeader.biHeight = -LCD_YSIZE;  //位图高度  //当图像是倒立显示的时候，把biHeight改为对应的负值
-	bmp.bmiHeader.biPlanes = 1;
-	bmp.bmiHeader.biBitCount = 32;   //一个像素32Bit
-	bmp.bmiHeader.biCompression = BI_RGB;
+	bmp.bmiHeader.biPlanes   =   1;   
+	bmp.bmiHeader.biBitCount   =   32;   //一个像素32Bit
+	bmp.bmiHeader.biCompression   =   BI_RGB; 
 }
 
 
 void UpdataShow(HDC _hdc)
 {
 	SetDIBitsToDevice(_hdc,
-		0, 0,  //在屏幕中的起始坐标
-		LCD_XSIZE, LCD_YSIZE,  //显示的屏幕的宽,高
-		0, 0,   //位图左下角的坐标
-		0,  //DIB中的起始扫描线
-		LCD_YSIZE,  // DIB扫描线数目
-		(BYTE*)LCD_Buffer,  //位图数据区起始指针,是BYTE*类型
-		&bmp,  //位图的BITMAPINFO指针
-		DIB_RGB_COLORS);  //颜色使用类型
+								0, 0,  //在屏幕中的起始坐标
+								LCD_XSIZE, LCD_YSIZE,  //显示的屏幕的宽,高
+								0 , 0,   //位图左下角的坐标
+								0,  //DIB中的起始扫描线
+								LCD_YSIZE,  // DIB扫描线数目
+								(BYTE*)LCD_Buffer,  //位图数据区起始指针,是BYTE*类型
+								&bmp,  //位图的BITMAPINFO指针
+								DIB_RGB_COLORS);  //颜色使用类型
 }
 
-void LCDSIM_SetPixelIndex(int x, int y, int Index, int LayerIndex)
+void LCDSIM_SetPixelIndex(int x, int y, int Index, int LayerIndex)  
 {
 #if 0
 	int R = (Index & 0xF800) >> 11;
@@ -48,10 +48,10 @@ void LCDSIM_SetPixelIndex(int x, int y, int Index, int LayerIndex)
 
 #if (LCD_BITSPERPIXEL == 8)
 	unsigned char R = 1.164 * (Index - 16);
-	LCD_Buffer[y][x] = R << 16 | R << 8 | R;
+	LCD_Buffer[y][x] = R << 16 | R << 8 | R ;
 #elif (LCD_BITSPERPIXEL == 16) && (LCD_FIXEDPALETTE == 565)
-	LCD_Buffer[y][x] = ((Index & 0xF800) << 3 >> 11 << 16) | ((Index & 0x07E0) << 2 >> 5 << 8) | (Index & 0x1F) << 3;
-#elif (LCD_BITSPERPIXEL == 1)
+	LCD_Buffer[y][x] = ((Index & 0xF800) << 3 >> 11 << 16) | ((Index & 0x07E0) << 2 >> 5 << 8) | (Index & 0x1F)<<3;
+#else if (LCD_BITSPERPIXEL == 1)
 	if (Index == 0)
 	{
 		LCD_Buffer[y][x] = 0x00000000;
@@ -60,8 +60,6 @@ void LCDSIM_SetPixelIndex(int x, int y, int Index, int LayerIndex)
 	{
 		LCD_Buffer[y][x] = 0x00FFFFFF;
 	}
-#else
-	LCD_Buffer[y][x] = Index;
 #endif
 }
 
@@ -77,7 +75,7 @@ int LCDSIM_GetPixelIndex(int x, int y, int LayerIndex)
 	return LCD_Buffer[y][x];
 }
 
-void LCDSIM_SetLUTEntry(U8 Pos, LCD_COLOR color, int LayerIndex)
+void LCDSIM_SetLUTEntry(U8 Pos, LCD_COLOR color, int LayerIndex) 
 {
 
 }

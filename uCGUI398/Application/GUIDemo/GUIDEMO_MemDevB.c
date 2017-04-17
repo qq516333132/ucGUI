@@ -17,8 +17,8 @@ Purpose     : Memory device demo
 ----------------------------------------------------------------------
 */
 
-#include "GUI.H"
-#include "GUIDEMO.H"
+#include "GUI.h"
+#include "GUIDEMO.h"
 #include "WM.h"
 #include "stdio.h"
 

@@ -24,6 +24,7 @@ void MainTask(void) {
   GUI_Init();
   while(1) {
     GUIDEMO_main();
+	GUI_X_Delay(30);
   }
 }
 	 	 			 		    	 				 	  			   	 	 	 	 	 	  	  	      	   		 	 	 		  		  	 		 	  	  			     			       	   	 			  		    	 	     	 				  	 					 	 			   	  	  			 				 		 	 	 			     			 

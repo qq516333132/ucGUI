@@ -19,8 +19,8 @@ Purpose     : Introduction for µC/GUI generic demo
 ----------------------------------------------------------------------
 */
 
-#include "GUI.H"
-#include "GUIDEMO.H"
+#include "GUI.h"
+#include "GUIDEMO.h"
 #include <string.h>
 
 /*********************************************************************

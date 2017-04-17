@@ -23,7 +23,7 @@ Purpose     : Core routines
 
 #include "GUI_Private.h"
 #include "GUIDebug.h"
-
+#include "LCD_L0_Generic.c"
 #if GUI_WINSUPPORT
   #include "WM_GUI.h"
   #include "WM.h"

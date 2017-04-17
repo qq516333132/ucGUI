@@ -18,8 +18,8 @@ Purpose     : GUIDEMO font routines
 */
 
 #include <stddef.h>
-#include "GUI.H"
-#include "GUIDEMO.H"
+#include "GUI.h"
+#include "GUIDEMO.h"
 
 /*********************************************************************
 *

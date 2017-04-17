@@ -1,381 +1,148 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
+    <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4003A96A-0B61-34CE-89D7-0A03996B2470}</ProjectGuid>
+    <RootNamespace>ucGUI-Simulation</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>ucGUI-Simulation</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>ucGUI-Simulation</PrimaryOutput>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ucGUI-Simulation</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ucGUI-Simulation</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;Config;GUI\Core;GUI\Widget;GUI\WM;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtWidgets;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtGui;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtANGLE;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtCore;release;.;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\mkspecs\win32-msvc2010;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-w34100 -w34189 -w44996 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\qtmain.lib;shell32.lib;C:/qt/qt5.5.1_x64/5.5/msvc2013_64/lib\Qt5Core.lib;winmm.lib;User32.lib;GDI32.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:/qt/qt5.5.1_x64/5.5/msvc2013_64/lib;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\ucGUI-Simulation.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;Config;GUI\Core;GUI\Widget;GUI\WM;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtWidgets;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtGui;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtANGLE;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtCore;debug;.;..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\mkspecs\win32-msvc2010;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-w34100 -w34189 -w44996 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\qtmaind.lib;shell32.lib;C:/qt/qt5.5.1_x64/5.5/msvc2013_64/lib\Qt5Cored.lib;winmm.lib;User32.lib;GDI32.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:/qt/qt5.5.1_x64/5.5/msvc2013_64/lib;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\ucGUI-Simulation.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application\GUIDemo\GUIDEMO.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Automotive.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Bitmap.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Bitmap4bpp.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Circle.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_ColorBar.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_ColorList.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Cursor.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Dialog.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Font.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_FrameWin.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Graph.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_HardwareInfo.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Intro.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_LUT.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_MemDevB.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Messagebox.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Navi.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Polygon.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_ProgBar.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Speed.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_Touch.c" />
-    <ClCompile Include="Application\GUIDemo\GUIDEMO_WM.c" />
-    <ClCompile Include="Application\GUIDemo\MainTask.c" />
-    <ClCompile Include="Application\GUIDemo\MicriumLogo.c" />
-    <ClCompile Include="Application\GUIDemo\MicriumLogoWRed.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAAArc.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAAChar.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAAChar2.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAAChar4.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAACircle.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAALib.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAALine.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAAPoly.c" />
-    <ClCompile Include="GUI\AntiAlias\GUIAAPolyOut.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP111.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP222.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP233.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP323.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP332.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP444_12.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP444_12_1.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP444_16.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP555.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP556.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP565.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP655.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP666.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP8666.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP8666_1.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDP888.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM233.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM323.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM332.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM444_12.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM444_16.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM555.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM556.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM565.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM655.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM666.c" />
-    <ClCompile Include="GUI\ConvertColor\LCDPM888.c" />
-    <ClCompile Include="GUI\ConvertMono\LCDP0.c" />
-    <ClCompile Include="GUI\ConvertMono\LCDP2.c" />
-    <ClCompile Include="GUI\ConvertMono\LCDP4.c" />
-    <ClCompile Include="GUI\Core\GUI2DLib.c" />
-    <ClCompile Include="GUI\Core\GUIAlloc.c" />
-    <ClCompile Include="GUI\Core\GUIArc.c" />
-    <ClCompile Include="GUI\Core\GUIChar.c" />
-    <ClCompile Include="GUI\Core\GUICharLine.c" />
-    <ClCompile Include="GUI\Core\GUICharM.c" />
-    <ClCompile Include="GUI\Core\GUICharP.c" />
-    <ClCompile Include="GUI\Core\GUICirc.c" />
-    <ClCompile Include="GUI\Core\GUIColor2Index.c" />
-    <ClCompile Include="GUI\Core\GUICore.c" />
-    <ClCompile Include="GUI\Core\GUICurs.c" />
-    <ClCompile Include="GUI\Core\GUIEncJS.c" />
-    <ClCompile Include="GUI\Core\GUIIndex2Color.c" />
-    <ClCompile Include="GUI\Core\GUIPolyE.c" />
-    <ClCompile Include="GUI\Core\GUIPolyM.c" />
-    <ClCompile Include="GUI\Core\GUIPolyR.c" />
-    <ClCompile Include="GUI\Core\GUIRealloc.c" />
-    <ClCompile Include="GUI\Core\GUIStream.c" />
-    <ClCompile Include="GUI\Core\GUITask.c" />
-    <ClCompile Include="GUI\Core\GUITime.c" />
-    <ClCompile Include="GUI\Core\GUITimer.c" />
-    <ClCompile Include="GUI\Core\GUIUC0.c" />
-    <ClCompile Include="GUI\Core\GUIVal.c" />
-    <ClCompile Include="GUI\Core\GUIValf.c" />
-    <ClCompile Include="GUI\Core\GUI_AddBin.c" />
-    <ClCompile Include="GUI\Core\GUI_AddDec.c" />
-    <ClCompile Include="GUI\Core\GUI_AddDecMin.c" />
-    <ClCompile Include="GUI\Core\GUI_AddDecShift.c" />
-    <ClCompile Include="GUI\Core\GUI_AddHex.c" />
-    <ClCompile Include="GUI\Core\GUI_AddKeyMsgHook.c" />
-    <ClCompile Include="GUI\Core\GUI_ALLOC_AllocInit.c" />
-    <ClCompile Include="GUI\Core\GUI_ALLOC_AllocZero.c" />
-    <ClCompile Include="GUI\Core\GUI_BMP.c" />
-    <ClCompile Include="GUI\Core\GUI_BMP_Serialize.c" />
-    <ClCompile Include="GUI\Core\GUI_CalcColorDist.c" />
-    <ClCompile Include="GUI\Core\GUI_ClearRectEx.c" />
-    <ClCompile Include="GUI\Core\GUI_Color2VisColor.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowL.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowLI.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowLPx.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowM.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowMI.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowMPx.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowS.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowSI.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorArrowSPx.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossL.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossLI.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossLPx.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossM.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossMI.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossMPx.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossS.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossSI.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorCrossSPx.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorHeaderM.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorHeaderMI.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorHeaderMPx.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorPal.c" />
-    <ClCompile Include="GUI\Core\GUI_CursorPalI.c" />
-    <ClCompile Include="GUI\Core\GUI_DispBin.c" />
-    <ClCompile Include="GUI\Core\GUI_DispCEOL.c" />
-    <ClCompile Include="GUI\Core\GUI_DispChar.c" />
-    <ClCompile Include="GUI\Core\GUI_DispChars.c" />
-    <ClCompile Include="GUI\Core\GUI_DispHex.c" />
-    <ClCompile Include="GUI\Core\GUI_DispString.c" />
-    <ClCompile Include="GUI\Core\GUI_DispStringAt.c" />
-    <ClCompile Include="GUI\Core\GUI_DispStringAtCEOL.c" />
-    <ClCompile Include="GUI\Core\GUI_DispStringHCenter.c" />
-    <ClCompile Include="GUI\Core\GUI_DispStringInRect.c" />
-    <ClCompile Include="GUI\Core\GUI_DispStringInRectEx.c" />
-    <ClCompile Include="GUI\Core\GUI_DispStringInRectWrap.c" />
-    <ClCompile Include="GUI\Core\GUI_DispStringLen.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawBitmap.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawBitmapEx.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawBitmapExp.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawBitmapMag.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawBitmap_555.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawBitmap_565.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawBitmap_888.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawFocusRect.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawGraph.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawGraphEx.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawHLine.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawLine.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawPie.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawPixel.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawPoint.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawPolygon.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawPolyline.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawRectEx.c" />
-    <ClCompile Include="GUI\Core\GUI_DrawVLine.c" />
-    <ClCompile Include="GUI\Core\GUI_ErrorOut.c" />
-    <ClCompile Include="GUI\Core\GUI_Exec.c" />
-    <ClCompile Include="GUI\Core\GUI_FillPolygon.c" />
-    <ClCompile Include="GUI\Core\GUI_FillRect.c" />
-    <ClCompile Include="GUI\Core\GUI_FillRectEx.c" />
-    <ClCompile Include="GUI\Core\GUI_GetBitmapPixelColor.c" />
-    <ClCompile Include="GUI\Core\GUI_GetBitmapPixelIndex.c" />
-    <ClCompile Include="GUI\Core\GUI_GetClientRect.c" />
-    <ClCompile Include="GUI\Core\GUI_GetColor.c" />
-    <ClCompile Include="GUI\Core\GUI_GetDispPos.c" />
-    <ClCompile Include="GUI\Core\GUI_GetDrawMode.c" />
-    <ClCompile Include="GUI\Core\GUI_GetFont.c" />
-    <ClCompile Include="GUI\Core\GUI_GetFontInfo.c" />
-    <ClCompile Include="GUI\Core\GUI_GetFontSizeY.c" />
-    <ClCompile Include="GUI\Core\GUI_GetLineStyle.c" />
-    <ClCompile Include="GUI\Core\GUI_GetOrg.c" />
-    <ClCompile Include="GUI\Core\GUI_GetStringDistX.c" />
-    <ClCompile Include="GUI\Core\GUI_GetTextAlign.c" />
-    <ClCompile Include="GUI\Core\GUI_GetTextExtend.c" />
-    <ClCompile Include="GUI\Core\GUI_GetTextMode.c" />
-    <ClCompile Include="GUI\Core\GUI_GetVersionString.c" />
-    <ClCompile Include="GUI\Core\GUI_GetYSizeOfFont.c" />
-    <ClCompile Include="GUI\Core\GUI_GIF.c" />
-    <ClCompile Include="GUI\Core\GUI_Goto.c" />
-    <ClCompile Include="GUI\Core\GUI_InitLUT.c" />
-    <ClCompile Include="GUI\Core\GUI_InvertRect.c" />
-    <ClCompile Include="GUI\Core\GUI_IsInFont.c" />
-    <ClCompile Include="GUI\Core\GUI_Log.c" />
-    <ClCompile Include="GUI\Core\GUI_MergeRect.c" />
-    <ClCompile Include="GUI\Core\GUI_MOUSE.c" />
-    <ClCompile Include="GUI\Core\GUI_MOUSE_DriverPS2.c" />
-    <ClCompile Include="GUI\Core\GUI_MoveRect.c" />
-    <ClCompile Include="GUI\Core\GUI_OnKey.c" />
-    <ClCompile Include="GUI\Core\GUI_Pen.c" />
-    <ClCompile Include="GUI\Core\GUI_PID.c" />
-    <ClCompile Include="GUI\Core\GUI_RectsIntersect.c" />
-    <ClCompile Include="GUI\Core\GUI_SaveContext.c" />
-    <ClCompile Include="GUI\Core\GUI_ScreenSize.c" />
-    <ClCompile Include="GUI\Core\GUI_SelectLayer.c" />
-    <ClCompile Include="GUI\Core\GUI_SelectLCD.c" />
-    <ClCompile Include="GUI\Core\GUI_SetClipRect.c" />
-    <ClCompile Include="GUI\Core\GUI_SetColor.c" />
-    <ClCompile Include="GUI\Core\GUI_SetColorIndex.c" />
-    <ClCompile Include="GUI\Core\GUI_SetDecChar.c" />
-    <ClCompile Include="GUI\Core\GUI_SetDefault.c" />
-    <ClCompile Include="GUI\Core\GUI_SetDrawMode.c" />
-    <ClCompile Include="GUI\Core\GUI_SetFont.c" />
-    <ClCompile Include="GUI\Core\GUI_SetLBorder.c" />
-    <ClCompile Include="GUI\Core\GUI_SetLineStyle.c" />
-    <ClCompile Include="GUI\Core\GUI_SetLUTColor.c" />
-    <ClCompile Include="GUI\Core\GUI_SetLUTColorEx.c" />
-    <ClCompile Include="GUI\Core\GUI_SetLUTEntry.c" />
-    <ClCompile Include="GUI\Core\GUI_SetOrg.c" />
-    <ClCompile Include="GUI\Core\GUI_SetPixelIndex.c" />
-    <ClCompile Include="GUI\Core\GUI_SetTextAlign.c" />
-    <ClCompile Include="GUI\Core\GUI_SetTextMode.c" />
-    <ClCompile Include="GUI\Core\GUI_SetTextStyle.c" />
-    <ClCompile Include="GUI\Core\GUI_SIF.c" />
-    <ClCompile Include="GUI\Core\GUI_SIF_Prop.c" />
-    <ClCompile Include="GUI\Core\GUI_TOUCH.c" />
-    <ClCompile Include="GUI\Core\GUI_TOUCH_DriverAnalog.c" />
-    <ClCompile Include="GUI\Core\GUI_TOUCH_StoreState.c" />
-    <ClCompile Include="GUI\Core\GUI_TOUCH_StoreUnstable.c" />
-    <ClCompile Include="GUI\Core\GUI_UC.c" />
-    <ClCompile Include="GUI\Core\GUI_UC_ConvertUC2UTF8.c" />
-    <ClCompile Include="GUI\Core\GUI_UC_ConvertUTF82UC.c" />
-    <ClCompile Include="GUI\Core\GUI_UC_DispString.c" />
-    <ClCompile Include="GUI\Core\GUI_UC_EncodeNone.c" />
-    <ClCompile Include="GUI\Core\GUI_UC_EncodeUTF8.c" />
-    <ClCompile Include="GUI\Core\GUI_WaitEvent.c" />
-    <ClCompile Include="GUI\Core\GUI_WaitKey.c" />
-    <ClCompile Include="GUI\Core\GUI_Warn.c" />
-    <ClCompile Include="GUI\Core\GUI__AddSpaceHex.c" />
-    <ClCompile Include="GUI\Core\GUI__Arabic.c" />
-    <ClCompile Include="GUI\Core\GUI__CalcTextRect.c" />
-    <ClCompile Include="GUI\Core\GUI__DivideRound.c" />
-    <ClCompile Include="GUI\Core\GUI__DivideRound32.c" />
-    <ClCompile Include="GUI\Core\GUI__DrawBitmap16bpp.c" />
-    <ClCompile Include="GUI\Core\GUI__GetCursorPos.c" />
-    <ClCompile Include="GUI\Core\GUI__GetFontSizeY.c" />
-    <ClCompile Include="GUI\Core\GUI__GetNumChars.c" />
-    <ClCompile Include="GUI\Core\GUI__HandleEOLine.c" />
-    <ClCompile Include="GUI\Core\GUI__IntersectRect.c" />
-    <ClCompile Include="GUI\Core\GUI__IntersectRects.c" />
-    <ClCompile Include="GUI\Core\GUI__memset.c" />
-    <ClCompile Include="GUI\Core\GUI__memset16.c" />
-    <ClCompile Include="GUI\Core\GUI__Read.c" />
-    <ClCompile Include="GUI\Core\GUI__ReduceRect.c" />
-    <ClCompile Include="GUI\Core\GUI__SetText.c" />
-    <ClCompile Include="GUI\Core\GUI__strcmp.c" />
-    <ClCompile Include="GUI\Core\GUI__strlen.c" />
-    <ClCompile Include="GUI\Core\GUI__Wrap.c" />
-    <ClCompile Include="GUI\Core\LCD.c" />
-    <ClCompile Include="GUI\Core\LCDAA.c" />
-    <ClCompile Include="GUI\Core\LCDColor.c" />
-    <ClCompile Include="GUI\Core\LCDGetP.c" />
-    <ClCompile Include="GUI\Core\LCDInfo.c" />
-    <ClCompile Include="GUI\Core\LCDInfo0.c" />
-    <ClCompile Include="GUI\Core\LCDInfo1.c" />
-    <ClCompile Include="GUI\Core\LCDL0Delta.c" />
-    <ClCompile Include="GUI\Core\LCDL0Mag.c" />
-    <ClCompile Include="GUI\Core\LCDP1.c" />
-    <ClCompile Include="GUI\Core\LCDP565_Index2Color.c" />
-    <ClCompile Include="GUI\Core\LCDP888_Index2Color.c" />
-    <ClCompile Include="GUI\Core\LCDPM565_Index2Color.c" />
-    <ClCompile Include="GUI\Core\LCDPM888_Index2Color.c" />
-    <ClCompile Include="GUI\Core\LCDRLE16.c" />
-    <ClCompile Include="GUI\Core\LCDRLE4.c" />
-    <ClCompile Include="GUI\Core\LCDRLE8.c" />
-    <ClCompile Include="GUI\Core\LCD_API.c" />
-    <ClCompile Include="GUI\Core\LCD_DrawVLine.c" />
-    <ClCompile Include="GUI\Core\LCD_GetColorIndex.c" />
-    <ClCompile Include="GUI\Core\LCD_GetEx.c" />
-    <ClCompile Include="GUI\Core\LCD_GetNumDisplays.c" />
-    <ClCompile Include="GUI\Core\LCD_GetPixelColor.c" />
-    <ClCompile Include="GUI\Core\LCD_Index2ColorEx.c" />
-    <ClCompile Include="GUI\Core\LCD_L0_Generic.c" />
-    <ClCompile Include="GUI\Core\LCD_Mirror.c" />
-    <ClCompile Include="GUI\Core\LCD_MixColors256.c" />
-    <ClCompile Include="GUI\Core\LCD_ReadRect.c" />
-    <ClCompile Include="GUI\Core\LCD_Rotate180.c" />
-    <ClCompile Include="GUI\Core\LCD_RotateCCW.c" />
-    <ClCompile Include="GUI\Core\LCD_RotateCW.c" />
-    <ClCompile Include="GUI\Core\LCD_SelectLCD.c" />
-    <ClCompile Include="GUI\Core\LCD_SetAPI.c" />
-    <ClCompile Include="GUI\Core\LCD_SetClipRectEx.c" />
-    <ClCompile Include="GUI\Core\LCD_UpdateColorIndices.c" />
-    <ClCompile Include="GUI\Font\F08_1.c" />
-    <ClCompile Include="GUI\Font\F08_ASCII.c" />
-    <ClCompile Include="GUI\Font\F10S_1.c" />
-    <ClCompile Include="GUI\Font\F10S_ASCII.c" />
-    <ClCompile Include="GUI\Font\F10_1.c" />
-    <ClCompile Include="GUI\Font\F10_ASCII.c" />
-    <ClCompile Include="GUI\Font\F13B_1.c" />
-    <ClCompile Include="GUI\Font\F13B_ASCII.c" />
-    <ClCompile Include="GUI\Font\F13HB_1.c" />
-    <ClCompile Include="GUI\Font\F13HB_ASCII.c" />
-    <ClCompile Include="GUI\Font\F13H_1.c" />
-    <ClCompile Include="GUI\Font\F13H_ASCII.c" />
-    <ClCompile Include="GUI\Font\F13_1.c" />
-    <ClCompile Include="GUI\Font\F13_ASCII.c" />
-    <ClCompile Include="GUI\Font\F16B_1.c" />
-    <ClCompile Include="GUI\Font\F16B_ASCII.c" />
-    <ClCompile Include="GUI\Font\F16_1.c" />
-    <ClCompile Include="GUI\Font\F16_1HK.c" />
-    <ClCompile Include="GUI\Font\F16_ASCII.c" />
-    <ClCompile Include="GUI\Font\F16_HK.c" />
-    <ClCompile Include="GUI\Font\F24B_1.c" />
-    <ClCompile Include="GUI\Font\F24B_ASCII.c" />
-    <ClCompile Include="GUI\Font\F24_1.c" />
-    <ClCompile Include="GUI\Font\F24_ASCII.c" />
-    <ClCompile Include="GUI\Font\F32B_1.c" />
-    <ClCompile Include="GUI\Font\F32B_ASCII.c" />
-    <ClCompile Include="GUI\Font\F32_1.c" />
-    <ClCompile Include="GUI\Font\F32_ASCII.c" />
-    <ClCompile Include="GUI\Font\F4x6.c" />
-    <ClCompile Include="GUI\Font\F6x8.c" />
-    <ClCompile Include="GUI\Font\F8x10_ASCII.c" />
-    <ClCompile Include="GUI\Font\F8x12_ASCII.c" />
-    <ClCompile Include="GUI\Font\F8x13_1.c" />
-    <ClCompile Include="GUI\Font\F8x13_ASCII.c" />
-    <ClCompile Include="GUI\Font\F8x15B_1.c" />
-    <ClCompile Include="GUI\Font\F8x15B_ASCII.c" />
-    <ClCompile Include="GUI\Font\F8x16.c" />
-    <ClCompile Include="GUI\Font\F8x8.c" />
-    <ClCompile Include="GUI\Font\FComic18B_1.c" />
-    <ClCompile Include="GUI\Font\FComic18B_ASCII.c" />
-    <ClCompile Include="GUI\Font\FComic24B_1.c" />
-    <ClCompile Include="GUI\Font\FComic24B_ASCII.c" />
-    <ClCompile Include="GUI\Font\FD24x32.c" />
-    <ClCompile Include="GUI\Font\FD32.c" />
-    <ClCompile Include="GUI\Font\FD36x48.c" />
-    <ClCompile Include="GUI\Font\FD48.c" />
-    <ClCompile Include="GUI\Font\FD48x64.c" />
-    <ClCompile Include="GUI\Font\FD60x80.c" />
-    <ClCompile Include="GUI\Font\FD64.c" />
-    <ClCompile Include="GUI\Font\FD80.c" />
-    <ClCompile Include="GUI\LCDDriver\LCDWin.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_1.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_16.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_8.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_AA.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_Auto.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_Banding.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_Clear.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_CmpWithLCD.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_CopyFromLCD.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_CreateFixed.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_GetDataPtr.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_GetXSize.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_GetYSize.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_Measure.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_ReduceYSize.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_SetOrg.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_Usage.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_UsageBM.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_Write.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_WriteAlpha.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_WriteEx.c" />
-    <ClCompile Include="GUI\MemDev\GUIDEV_XY2PTR.c" />
-    <ClCompile Include="GUI\MultiLayer\LCD_1.c" />
-    <ClCompile Include="GUI\MultiLayer\LCD_2.c" />
-    <ClCompile Include="GUI\MultiLayer\LCD_3.c" />
-    <ClCompile Include="GUI\MultiLayer\LCD_4.c" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_dialogmain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_dialogmain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GUI\Widget\BUTTON.c" />
-    <ClCompile Include="GUI\Widget\BUTTON_Bitmap.c" />
     <ClCompile Include="GUI\Widget\BUTTON_BMP.c" />
+    <ClCompile Include="GUI\Widget\BUTTON_Bitmap.c" />
     <ClCompile Include="GUI\Widget\BUTTON_Create.c" />
     <ClCompile Include="GUI\Widget\BUTTON_CreateIndirect.c" />
     <ClCompile Include="GUI\Widget\BUTTON_Default.c" />
@@ -441,10 +208,60 @@
     <ClCompile Include="GUI\Widget\EDIT_SetCursorAtChar.c" />
     <ClCompile Include="GUI\Widget\EDIT_SetFocussable.c" />
     <ClCompile Include="GUI\Widget\EDIT_SetInsertMode.c" />
-    <ClCompile Include="GUI\Widget\EDIT_SetpfAddKeyEx.c" />
-    <ClCompile Include="GUI\Widget\EDIT_SetpfUpdateBuffer.c" />
     <ClCompile Include="GUI\Widget\EDIT_SetSel.c" />
     <ClCompile Include="GUI\Widget\EDIT_SetTextMode.c" />
+    <ClCompile Include="GUI\Widget\EDIT_SetpfAddKeyEx.c" />
+    <ClCompile Include="GUI\Widget\EDIT_SetpfUpdateBuffer.c" />
+    <ClCompile Include="GUI\Font\F08_1.c" />
+    <ClCompile Include="GUI\Font\F08_ASCII.c" />
+    <ClCompile Include="GUI\Font\F10S_1.c" />
+    <ClCompile Include="GUI\Font\F10S_ASCII.c" />
+    <ClCompile Include="GUI\Font\F10_1.c" />
+    <ClCompile Include="GUI\Font\F10_ASCII.c" />
+    <ClCompile Include="GUI\Font\F13B_1.c" />
+    <ClCompile Include="GUI\Font\F13B_ASCII.c" />
+    <ClCompile Include="GUI\Font\F13HB_1.c" />
+    <ClCompile Include="GUI\Font\F13HB_ASCII.c" />
+    <ClCompile Include="GUI\Font\F13H_1.c" />
+    <ClCompile Include="GUI\Font\F13H_ASCII.c" />
+    <ClCompile Include="GUI\Font\F13_1.c" />
+    <ClCompile Include="GUI\Font\F13_ASCII.c" />
+    <ClCompile Include="GUI\Font\F16B_1.c" />
+    <ClCompile Include="GUI\Font\F16B_ASCII.c" />
+    <ClCompile Include="GUI\Font\F16_1.c" />
+    <ClCompile Include="GUI\Font\F16_1HK.c" />
+    <ClCompile Include="GUI\Font\F16_ASCII.c" />
+    <ClCompile Include="GUI\Font\F16_HK.c" />
+    <ClCompile Include="GUI\Font\F24B_1.c" />
+    <ClCompile Include="GUI\Font\F24B_ASCII.c" />
+    <ClCompile Include="GUI\Font\F24_1.c" />
+    <ClCompile Include="GUI\Font\F24_ASCII.c" />
+    <ClCompile Include="GUI\Font\F32B_1.c" />
+    <ClCompile Include="GUI\Font\F32B_ASCII.c" />
+    <ClCompile Include="GUI\Font\F32_1.c" />
+    <ClCompile Include="GUI\Font\F32_ASCII.c" />
+    <ClCompile Include="GUI\Font\F4x6.c" />
+    <ClCompile Include="GUI\Font\F6x8.c" />
+    <ClCompile Include="GUI\Font\F8x10_ASCII.c" />
+    <ClCompile Include="GUI\Font\F8x12_ASCII.c" />
+    <ClCompile Include="GUI\Font\F8x13_1.c" />
+    <ClCompile Include="GUI\Font\F8x13_ASCII.c" />
+    <ClCompile Include="GUI\Font\F8x15B_1.c" />
+    <ClCompile Include="GUI\Font\F8x15B_ASCII.c" />
+    <ClCompile Include="GUI\Font\F8x16.c" />
+    <ClCompile Include="GUI\Font\F8x8.c" />
+    <ClCompile Include="GUI\Font\FComic18B_1.c" />
+    <ClCompile Include="GUI\Font\FComic18B_ASCII.c" />
+    <ClCompile Include="GUI\Font\FComic24B_1.c" />
+    <ClCompile Include="GUI\Font\FComic24B_ASCII.c" />
+    <ClCompile Include="GUI\Font\FD24x32.c" />
+    <ClCompile Include="GUI\Font\FD32.c" />
+    <ClCompile Include="GUI\Font\FD36x48.c" />
+    <ClCompile Include="GUI\Font\FD48.c" />
+    <ClCompile Include="GUI\Font\FD48x64.c" />
+    <ClCompile Include="GUI\Font\FD60x80.c" />
+    <ClCompile Include="GUI\Font\FD64.c" />
+    <ClCompile Include="GUI\Font\FD80.c" />
     <ClCompile Include="GUI\Widget\FRAMEWIN.c" />
     <ClCompile Include="GUI\Widget\FRAMEWIN_AddMenu.c" />
     <ClCompile Include="GUI\Widget\FRAMEWIN_Button.c" />
@@ -469,30 +286,338 @@
     <ClCompile Include="GUI\Widget\GRAPH_DATA_XY.c" />
     <ClCompile Include="GUI\Widget\GRAPH_DATA_YT.c" />
     <ClCompile Include="GUI\Widget\GRAPH_SCALE.c" />
+    <ClCompile Include="GUI\Core\GUI2DLib.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAAArc.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAAChar.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAAChar2.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAAChar4.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAACircle.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAALib.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAALine.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAAPoly.c" />
+    <ClCompile Include="GUI\AntiAlias\GUIAAPolyOut.c" />
+    <ClCompile Include="GUI\Core\GUIAlloc.c" />
+    <ClCompile Include="GUI\Core\GUIArc.c" />
+    <ClCompile Include="GUI\Core\GUIChar.c" />
+    <ClCompile Include="GUI\Core\GUICharLine.c" />
+    <ClCompile Include="GUI\Core\GUICharM.c" />
+    <ClCompile Include="GUI\Core\GUICharP.c" />
+    <ClCompile Include="GUI\Core\GUICirc.c" />
+    <ClCompile Include="GUI\Core\GUIColor2Index.c" />
+    <ClCompile Include="GUI\Core\GUICore.c" />
+    <ClCompile Include="GUI\Core\GUICurs.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Automotive.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Bitmap.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Bitmap4bpp.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Circle.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_ColorBar.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_ColorList.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Cursor.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Dialog.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Font.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_FrameWin.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Graph.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_HardwareInfo.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Intro.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_LUT.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_MemDevB.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Messagebox.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Navi.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Polygon.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_ProgBar.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Speed.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_Touch.c" />
+    <ClCompile Include="Application\GUIDemo\GUIDEMO_WM.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_1.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_16.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_AA.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_Auto.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_Banding.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_Clear.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_CmpWithLCD.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_CopyFromLCD.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_CreateFixed.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_GetDataPtr.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_GetXSize.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_GetYSize.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_Measure.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_ReduceYSize.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_SetOrg.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_Usage.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_UsageBM.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_Write.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_WriteAlpha.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_WriteEx.c" />
+    <ClCompile Include="GUI\MemDev\GUIDEV_XY2PTR.c" />
+    <ClCompile Include="GUI\Core\GUIEncJS.c" />
+    <ClCompile Include="GUI\Core\GUIIndex2Color.c" />
+    <ClCompile Include="GUI\Core\GUIPolyE.c" />
+    <ClCompile Include="GUI\Core\GUIPolyM.c" />
+    <ClCompile Include="GUI\Core\GUIPolyR.c" />
+    <ClCompile Include="GUI\Core\GUIRealloc.c" />
+    <ClCompile Include="GUI\Core\GUIStream.c" />
+    <ClCompile Include="GUI\Core\GUITask.c" />
+    <ClCompile Include="GUI\Core\GUITime.c" />
+    <ClCompile Include="GUI\Core\GUITimer.c" />
+    <ClCompile Include="GUI\Core\GUIUC0.c" />
+    <ClCompile Include="GUI\Core\GUIVal.c" />
+    <ClCompile Include="GUI\Core\GUIValf.c" />
+    <ClCompile Include="GUI\Core\GUI_ALLOC_AllocInit.c" />
+    <ClCompile Include="GUI\Core\GUI_ALLOC_AllocZero.c" />
     <ClCompile Include="GUI\Widget\GUI_ARRAY.c" />
     <ClCompile Include="GUI\Widget\GUI_ARRAY_DeleteItem.c" />
     <ClCompile Include="GUI\Widget\GUI_ARRAY_InsertItem.c" />
     <ClCompile Include="GUI\Widget\GUI_ARRAY_ResizeItem.c" />
+    <ClCompile Include="GUI\Core\GUI_AddBin.c" />
+    <ClCompile Include="GUI\Core\GUI_AddDec.c" />
+    <ClCompile Include="GUI\Core\GUI_AddDecMin.c" />
+    <ClCompile Include="GUI\Core\GUI_AddDecShift.c" />
+    <ClCompile Include="GUI\Core\GUI_AddHex.c" />
+    <ClCompile Include="GUI\Core\GUI_AddKeyMsgHook.c" />
+    <ClCompile Include="GUI\Core\GUI_BMP.c" />
+    <ClCompile Include="GUI\Core\GUI_BMP_Serialize.c" />
+    <ClCompile Include="GUI\Core\GUI_CalcColorDist.c" />
+    <ClCompile Include="GUI\Core\GUI_ClearRectEx.c" />
+    <ClCompile Include="GUI\Core\GUI_Color2VisColor.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowL.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowLI.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowLPx.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowM.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowMI.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowMPx.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowS.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowSI.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorArrowSPx.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossL.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossLI.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossLPx.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossM.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossMI.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossMPx.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossS.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossSI.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorCrossSPx.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorHeaderM.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorHeaderMI.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorHeaderMPx.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorPal.c" />
+    <ClCompile Include="GUI\Core\GUI_CursorPalI.c" />
     <ClCompile Include="GUI\Widget\GUI_DRAW.c" />
     <ClCompile Include="GUI\Widget\GUI_DRAW_BITMAP.c" />
     <ClCompile Include="GUI\Widget\GUI_DRAW_BMP.c" />
-    <ClCompile Include="GUI\Widget\GUI_DRAW_Self.c" />
     <ClCompile Include="GUI\Widget\GUI_DRAW_STREAMED.c" />
+    <ClCompile Include="GUI\Widget\GUI_DRAW_Self.c" />
+    <ClCompile Include="GUI\Core\GUI_DispBin.c" />
+    <ClCompile Include="GUI\Core\GUI_DispCEOL.c" />
+    <ClCompile Include="GUI\Core\GUI_DispChar.c" />
+    <ClCompile Include="GUI\Core\GUI_DispChars.c" />
+    <ClCompile Include="GUI\Core\GUI_DispHex.c" />
+    <ClCompile Include="GUI\Core\GUI_DispString.c" />
+    <ClCompile Include="GUI\Core\GUI_DispStringAt.c" />
+    <ClCompile Include="GUI\Core\GUI_DispStringAtCEOL.c" />
+    <ClCompile Include="GUI\Core\GUI_DispStringHCenter.c" />
+    <ClCompile Include="GUI\Core\GUI_DispStringInRect.c" />
+    <ClCompile Include="GUI\Core\GUI_DispStringInRectEx.c" />
+    <ClCompile Include="GUI\Core\GUI_DispStringInRectWrap.c" />
+    <ClCompile Include="GUI\Core\GUI_DispStringLen.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawBitmap.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawBitmapEx.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawBitmapExp.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawBitmapMag.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawBitmap_555.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawBitmap_565.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawBitmap_888.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawFocusRect.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawGraph.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawGraphEx.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawHLine.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawLine.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawPie.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawPixel.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawPoint.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawPolygon.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawPolyline.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawRectEx.c" />
+    <ClCompile Include="GUI\Core\GUI_DrawVLine.c" />
     <ClCompile Include="GUI\Widget\GUI_EditBin.c" />
     <ClCompile Include="GUI\Widget\GUI_EditDec.c" />
     <ClCompile Include="GUI\Widget\GUI_EditFloat.c" />
     <ClCompile Include="GUI\Widget\GUI_EditHex.c" />
     <ClCompile Include="GUI\Widget\GUI_EditString.c" />
+    <ClCompile Include="GUI\Core\GUI_ErrorOut.c" />
+    <ClCompile Include="GUI\Core\GUI_Exec.c" />
+    <ClCompile Include="GUI\Core\GUI_FillPolygon.c" />
+    <ClCompile Include="GUI\Core\GUI_FillRect.c" />
+    <ClCompile Include="GUI\Core\GUI_FillRectEx.c" />
+    <ClCompile Include="GUI\Core\GUI_GIF.c" />
+    <ClCompile Include="GUI\Core\GUI_GetBitmapPixelColor.c" />
+    <ClCompile Include="GUI\Core\GUI_GetBitmapPixelIndex.c" />
+    <ClCompile Include="GUI\Core\GUI_GetClientRect.c" />
+    <ClCompile Include="GUI\Core\GUI_GetColor.c" />
+    <ClCompile Include="GUI\Core\GUI_GetDispPos.c" />
+    <ClCompile Include="GUI\Core\GUI_GetDrawMode.c" />
+    <ClCompile Include="GUI\Core\GUI_GetFont.c" />
+    <ClCompile Include="GUI\Core\GUI_GetFontInfo.c" />
+    <ClCompile Include="GUI\Core\GUI_GetFontSizeY.c" />
+    <ClCompile Include="GUI\Core\GUI_GetLineStyle.c" />
+    <ClCompile Include="GUI\Core\GUI_GetOrg.c" />
+    <ClCompile Include="GUI\Core\GUI_GetStringDistX.c" />
+    <ClCompile Include="GUI\Core\GUI_GetTextAlign.c" />
+    <ClCompile Include="GUI\Core\GUI_GetTextExtend.c" />
+    <ClCompile Include="GUI\Core\GUI_GetTextMode.c" />
+    <ClCompile Include="GUI\Core\GUI_GetVersionString.c" />
+    <ClCompile Include="GUI\Core\GUI_GetYSizeOfFont.c" />
+    <ClCompile Include="GUI\Core\GUI_Goto.c" />
     <ClCompile Include="GUI\Widget\GUI_HOOK.c" />
+    <ClCompile Include="GUI\Core\GUI_InitLUT.c" />
+    <ClCompile Include="GUI\Core\GUI_InvertRect.c" />
+    <ClCompile Include="GUI\Core\GUI_IsInFont.c" />
+    <ClCompile Include="GUI\Core\GUI_Log.c" />
+    <ClCompile Include="GUI\Core\GUI_MOUSE.c" />
+    <ClCompile Include="GUI\Core\GUI_MOUSE_DriverPS2.c" />
+    <ClCompile Include="GUI\Core\GUI_MergeRect.c" />
+    <ClCompile Include="GUI\Core\GUI_MoveRect.c" />
+    <ClCompile Include="GUI\Core\GUI_OnKey.c" />
+    <ClCompile Include="GUI\Core\GUI_PID.c" />
+    <ClCompile Include="GUI\Core\GUI_Pen.c" />
+    <ClCompile Include="GUI\Core\GUI_RectsIntersect.c" />
+    <ClCompile Include="GUI\Core\GUI_SIF.c" />
+    <ClCompile Include="GUI\Core\GUI_SIF_Prop.c" />
+    <ClCompile Include="GUI\Core\GUI_SaveContext.c" />
+    <ClCompile Include="GUI\Core\GUI_ScreenSize.c" />
+    <ClCompile Include="GUI\Core\GUI_SelectLCD.c" />
+    <ClCompile Include="GUI\Core\GUI_SelectLayer.c" />
+    <ClCompile Include="GUI\Core\GUI_SetClipRect.c" />
+    <ClCompile Include="GUI\Core\GUI_SetColor.c" />
+    <ClCompile Include="GUI\Core\GUI_SetColorIndex.c" />
+    <ClCompile Include="GUI\Core\GUI_SetDecChar.c" />
+    <ClCompile Include="GUI\Core\GUI_SetDefault.c" />
+    <ClCompile Include="GUI\Core\GUI_SetDrawMode.c" />
+    <ClCompile Include="GUI\Core\GUI_SetFont.c" />
+    <ClCompile Include="GUI\Core\GUI_SetLBorder.c" />
+    <ClCompile Include="GUI\Core\GUI_SetLUTColor.c" />
+    <ClCompile Include="GUI\Core\GUI_SetLUTColorEx.c" />
+    <ClCompile Include="GUI\Core\GUI_SetLUTEntry.c" />
+    <ClCompile Include="GUI\Core\GUI_SetLineStyle.c" />
+    <ClCompile Include="GUI\Core\GUI_SetOrg.c" />
+    <ClCompile Include="GUI\Core\GUI_SetPixelIndex.c" />
+    <ClCompile Include="GUI\Core\GUI_SetTextAlign.c" />
+    <ClCompile Include="GUI\Core\GUI_SetTextMode.c" />
+    <ClCompile Include="GUI\Core\GUI_SetTextStyle.c" />
+    <ClCompile Include="GUI\Core\GUI_TOUCH.c" />
+    <ClCompile Include="GUI\Core\GUI_TOUCH_DriverAnalog.c" />
+    <ClCompile Include="GUI\Core\GUI_TOUCH_StoreState.c" />
+    <ClCompile Include="GUI\Core\GUI_TOUCH_StoreUnstable.c" />
+    <ClCompile Include="GUI\Core\GUI_UC.c" />
+    <ClCompile Include="GUI\Core\GUI_UC_ConvertUC2UTF8.c" />
+    <ClCompile Include="GUI\Core\GUI_UC_ConvertUTF82UC.c" />
+    <ClCompile Include="GUI\Core\GUI_UC_DispString.c" />
+    <ClCompile Include="GUI\Core\GUI_UC_EncodeNone.c" />
+    <ClCompile Include="GUI\Core\GUI_UC_EncodeUTF8.c" />
+    <ClCompile Include="GUI\Core\GUI_WaitEvent.c" />
+    <ClCompile Include="GUI\Core\GUI_WaitKey.c" />
+    <ClCompile Include="GUI\Core\GUI_Warn.c" />
+    <ClCompile Include="Simulation\GUI_X_Win.c" />
+    <ClCompile Include="GUI\Core\GUI__AddSpaceHex.c" />
+    <ClCompile Include="GUI\Core\GUI__Arabic.c" />
+    <ClCompile Include="GUI\Core\GUI__CalcTextRect.c" />
+    <ClCompile Include="GUI\Core\GUI__DivideRound.c" />
+    <ClCompile Include="GUI\Core\GUI__DivideRound32.c" />
+    <ClCompile Include="GUI\Core\GUI__DrawBitmap16bpp.c" />
+    <ClCompile Include="GUI\Core\GUI__GetCursorPos.c" />
+    <ClCompile Include="GUI\Core\GUI__GetFontSizeY.c" />
+    <ClCompile Include="GUI\Core\GUI__GetNumChars.c" />
+    <ClCompile Include="GUI\Core\GUI__HandleEOLine.c" />
+    <ClCompile Include="GUI\Core\GUI__IntersectRect.c" />
+    <ClCompile Include="GUI\Core\GUI__IntersectRects.c" />
+    <ClCompile Include="GUI\Core\GUI__Read.c" />
+    <ClCompile Include="GUI\Core\GUI__ReduceRect.c" />
+    <ClCompile Include="GUI\Core\GUI__SetText.c" />
+    <ClCompile Include="GUI\Core\GUI__Wrap.c" />
+    <ClCompile Include="GUI\Core\GUI__memset.c" />
+    <ClCompile Include="GUI\Core\GUI__memset16.c" />
+    <ClCompile Include="GUI\Core\GUI__strcmp.c" />
+    <ClCompile Include="GUI\Core\GUI__strlen.c" />
     <ClCompile Include="GUI\Widget\HEADER.c" />
-    <ClCompile Include="GUI\Widget\HEADER_Bitmap.c" />
     <ClCompile Include="GUI\Widget\HEADER_BMP.c" />
+    <ClCompile Include="GUI\Widget\HEADER_Bitmap.c" />
     <ClCompile Include="GUI\Widget\HEADER_Create.c" />
     <ClCompile Include="GUI\Widget\HEADER_CreateIndirect.c" />
     <ClCompile Include="GUI\Widget\HEADER_GetSel.c" />
     <ClCompile Include="GUI\Widget\HEADER_SetDragLimit.c" />
     <ClCompile Include="GUI\Widget\HEADER_StreamedBitmap.c" />
     <ClCompile Include="GUI\Widget\HEADER__SetDrawObj.c" />
+    <ClCompile Include="GUI\Core\LCD.c" />
+    <ClCompile Include="GUI\Core\LCDAA.c" />
+    <ClCompile Include="GUI\Core\LCDColor.c" />
+    <ClCompile Include="GUI\Core\LCDGetP.c" />
+    <ClCompile Include="GUI\Core\LCDInfo.c" />
+    <ClCompile Include="GUI\Core\LCDInfo0.c" />
+    <ClCompile Include="GUI\Core\LCDInfo1.c" />
+    <ClCompile Include="GUI\Core\LCDL0Delta.c" />
+    <ClCompile Include="GUI\Core\LCDL0Mag.c" />
+    <ClCompile Include="GUI\ConvertMono\LCDP0.c" />
+    <ClCompile Include="GUI\Core\LCDP1.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP111.c" />
+    <ClCompile Include="GUI\ConvertMono\LCDP2.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP222.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP233.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP323.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP332.c" />
+    <ClCompile Include="GUI\ConvertMono\LCDP4.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP444_12.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP444_12_1.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP444_16.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP555.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP556.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP565.c" />
+    <ClCompile Include="GUI\Core\LCDP565_Index2Color.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP655.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP666.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP8666.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP8666_1.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDP888.c" />
+    <ClCompile Include="GUI\Core\LCDP888_Index2Color.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM233.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM323.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM332.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM444_12.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM444_16.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM555.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM556.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM565.c" />
+    <ClCompile Include="GUI\Core\LCDPM565_Index2Color.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM655.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM666.c" />
+    <ClCompile Include="GUI\ConvertColor\LCDPM888.c" />
+    <ClCompile Include="GUI\Core\LCDPM888_Index2Color.c" />
+    <ClCompile Include="GUI\Core\LCDRLE16.c" />
+    <ClCompile Include="GUI\Core\LCDRLE4.c" />
+    <ClCompile Include="GUI\Core\LCDRLE8.c" />
+    <ClCompile Include="GUI\LCDDriver\LCDWin.c" />
+    <ClCompile Include="GUI\MultiLayer\LCD_1.c" />
+    <ClCompile Include="GUI\MultiLayer\LCD_2.c" />
+    <ClCompile Include="GUI\MultiLayer\LCD_3.c" />
+    <ClCompile Include="GUI\MultiLayer\LCD_4.c" />
+    <ClCompile Include="GUI\Core\LCD_API.c" />
+    <ClCompile Include="GUI\Core\LCD_DrawVLine.c" />
+    <ClCompile Include="GUI\Core\LCD_GetColorIndex.c" />
+    <ClCompile Include="GUI\Core\LCD_GetEx.c" />
+    <ClCompile Include="GUI\Core\LCD_GetNumDisplays.c" />
+    <ClCompile Include="GUI\Core\LCD_GetPixelColor.c" />
+    <ClCompile Include="GUI\Core\LCD_Index2ColorEx.c" />
+    <ClCompile Include="GUI\Core\LCD_Mirror.c" />
+    <ClCompile Include="GUI\Core\LCD_MixColors256.c" />
+    <ClCompile Include="GUI\Core\LCD_ReadRect.c" />
+    <ClCompile Include="GUI\Core\LCD_Rotate180.c" />
+    <ClCompile Include="GUI\Core\LCD_RotateCCW.c" />
+    <ClCompile Include="GUI\Core\LCD_RotateCW.c" />
+    <ClCompile Include="GUI\Core\LCD_SelectLCD.c" />
+    <ClCompile Include="GUI\Core\LCD_SetAPI.c" />
+    <ClCompile Include="GUI\Core\LCD_SetClipRectEx.c" />
+    <ClCompile Include="GUI\Core\LCD_UpdateColorIndices.c" />
     <ClCompile Include="GUI\Widget\LISTBOX.c" />
     <ClCompile Include="GUI\Widget\LISTBOX_Create.c" />
     <ClCompile Include="GUI\Widget\LISTBOX_CreateIndirect.c" />
@@ -574,6 +699,9 @@
     <ClCompile Include="GUI\Widget\MULTIPAGE_Create.c" />
     <ClCompile Include="GUI\Widget\MULTIPAGE_CreateIndirect.c" />
     <ClCompile Include="GUI\Widget\MULTIPAGE_Default.c" />
+    <ClCompile Include="Application\GUIDemo\MainTask.c" />
+    <ClCompile Include="Application\GUIDemo\MicriumLogo.c" />
+    <ClCompile Include="Application\GUIDemo\MicriumLogoWRed.c" />
     <ClCompile Include="GUI\Widget\PROGBAR.c" />
     <ClCompile Include="GUI\Widget\PROGBAR_Create.c" />
     <ClCompile Include="GUI\Widget\PROGBAR_CreateIndirect.c" />
@@ -584,6 +712,7 @@
     <ClCompile Include="GUI\Widget\PROGBAR_SetTextAlign.c" />
     <ClCompile Include="GUI\Widget\PROGBAR_SetTextColor.c" />
     <ClCompile Include="GUI\Widget\PROGBAR_SetTextPos.c" />
+    <ClCompile Include="Simulation\QMain.cpp" />
     <ClCompile Include="GUI\Widget\RADIO.c" />
     <ClCompile Include="GUI\Widget\RADIO_Create.c" />
     <ClCompile Include="GUI\Widget\RADIO_CreateIndirect.c" />
@@ -662,10 +791,10 @@
     <ClCompile Include="GUI\WM\WM_GetOrg.c" />
     <ClCompile Include="GUI\WM\WM_GetParent.c" />
     <ClCompile Include="GUI\WM\WM_GetPrevSibling.c" />
-    <ClCompile Include="GUI\WM\WM_GetScrollbar.c" />
     <ClCompile Include="GUI\WM\WM_GetScrollPartner.c" />
     <ClCompile Include="GUI\WM\WM_GetScrollPos.c" />
     <ClCompile Include="GUI\WM\WM_GetScrollState.c" />
+    <ClCompile Include="GUI\WM\WM_GetScrollbar.c" />
     <ClCompile Include="GUI\WM\WM_GetWindowRect.c" />
     <ClCompile Include="GUI\WM\WM_GetWindowSize.c" />
     <ClCompile Include="GUI\WM\WM_HasCaptured.c" />
@@ -682,10 +811,11 @@
     <ClCompile Include="GUI\WM\WM_MoveChildTo.c" />
     <ClCompile Include="GUI\WM\WM_NotifyParent.c" />
     <ClCompile Include="GUI\WM\WM_OnKey.c" />
+    <ClCompile Include="GUI\WM\WM_PID__GetPrevState.c" />
     <ClCompile Include="GUI\WM\WM_Paint.c" />
     <ClCompile Include="GUI\WM\WM_PaintWindowAndDescs.c" />
-    <ClCompile Include="GUI\WM\WM_PID__GetPrevState.c" />
     <ClCompile Include="GUI\WM\WM_ResizeWindow.c" />
+    <ClCompile Include="GUI\WM\WM_SIM.c" />
     <ClCompile Include="GUI\WM\WM_Screen2Win.c" />
     <ClCompile Include="GUI\WM\WM_SendMessageNoPara.c" />
     <ClCompile Include="GUI\WM\WM_SendToParent.c" />
@@ -699,10 +829,9 @@
     <ClCompile Include="GUI\WM\WM_SetFocusOnNextChild.c" />
     <ClCompile Include="GUI\WM\WM_SetFocusOnPrevChild.c" />
     <ClCompile Include="GUI\WM\WM_SetId.c" />
-    <ClCompile Include="GUI\WM\WM_SetpfPollPID.c" />
-    <ClCompile Include="GUI\WM\WM_SetScrollbar.c" />
     <ClCompile Include="GUI\WM\WM_SetScrollPos.c" />
     <ClCompile Include="GUI\WM\WM_SetScrollState.c" />
+    <ClCompile Include="GUI\WM\WM_SetScrollbar.c" />
     <ClCompile Include="GUI\WM\WM_SetSize.c" />
     <ClCompile Include="GUI\WM\WM_SetTrans.c" />
     <ClCompile Include="GUI\WM\WM_SetTransState.c" />
@@ -710,8 +839,8 @@
     <ClCompile Include="GUI\WM\WM_SetWindowPos.c" />
     <ClCompile Include="GUI\WM\WM_SetXSize.c" />
     <ClCompile Include="GUI\WM\WM_SetYSize.c" />
+    <ClCompile Include="GUI\WM\WM_SetpfPollPID.c" />
     <ClCompile Include="GUI\WM\WM_Show.c" />
-    <ClCompile Include="GUI\WM\WM_SIM.c" />
     <ClCompile Include="GUI\WM\WM_StayOnTop.c" />
     <ClCompile Include="GUI\WM\WM_Timer.c" />
     <ClCompile Include="GUI\WM\WM_TimerExternal.c" />
@@ -734,135 +863,41 @@
     <ClCompile Include="GUI\WM\WM__SendMessageIfEnabled.c" />
     <ClCompile Include="GUI\WM\WM__SendMessageNoPara.c" />
     <ClCompile Include="GUI\WM\WM__UpdateChildPositions.c" />
-    <ClCompile Include="Simulation\GUI_X_Win.c" />
-    <ClCompile Include="Simulation\LCDSIM.c" />
-    <ClCompile Include="Simulation\WinMain.c" />
+    <ClCompile Include="Simulation\dialogmain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application\GUIDemo\GUIDEMO.h" />
-    <ClInclude Include="Application\GUIDemo\Map.h" />
-    <ClInclude Include="Config\GUIConf.h" />
-    <ClInclude Include="Config\GUITouchConf.h" />
-    <ClInclude Include="Config\LCDConf.h" />
-    <ClInclude Include="GUI\Core\GUI.h" />
-    <ClInclude Include="GUI\Core\GUIDebug.h" />
-    <ClInclude Include="GUI\Core\GUIType.h" />
-    <ClInclude Include="GUI\Core\GUIVersion.h" />
-    <ClInclude Include="GUI\Core\GUI_ConfDefaults.h" />
-    <ClInclude Include="GUI\Core\GUI_FontIntern.h" />
-    <ClInclude Include="GUI\Core\GUI_Private.h" />
-    <ClInclude Include="GUI\Core\GUI_Protected.h" />
-    <ClInclude Include="GUI\Core\GUI_VNC.h" />
-    <ClInclude Include="GUI\Core\GUI_X.h" />
-    <ClInclude Include="GUI\Core\LCD.h" />
-    <ClInclude Include="GUI\Core\LCDSIM.h" />
-    <ClInclude Include="GUI\Core\LCD_ConfDefaults.h" />
-    <ClInclude Include="GUI\Core\LCD_Private.h" />
-    <ClInclude Include="GUI\Core\LCD_Protected.h" />
-    <ClInclude Include="GUI\MultiLayer\LCD_IncludeDriver.h" />
-    <ClInclude Include="GUI\Widget\BUTTON.h" />
-    <ClInclude Include="GUI\Widget\BUTTON_Private.h" />
-    <ClInclude Include="GUI\Widget\CHECKBOX.h" />
-    <ClInclude Include="GUI\Widget\CHECKBOX_Private.h" />
-    <ClInclude Include="GUI\Widget\DIALOG.h" />
-    <ClInclude Include="GUI\Widget\DIALOG_Intern.h" />
-    <ClInclude Include="GUI\Widget\DROPDOWN.h" />
-    <ClInclude Include="GUI\Widget\DROPDOWN_Private.h" />
-    <ClInclude Include="GUI\Widget\EDIT.h" />
-    <ClInclude Include="GUI\Widget\EDIT_Private.h" />
-    <ClInclude Include="GUI\Widget\FRAMEWIN.h" />
-    <ClInclude Include="GUI\Widget\FRAMEWIN_Private.h" />
-    <ClInclude Include="GUI\Widget\GRAPH.h" />
-    <ClInclude Include="GUI\Widget\GRAPH_Private.h" />
-    <ClInclude Include="GUI\Widget\GUI_ARRAY.h" />
-    <ClInclude Include="GUI\Widget\GUI_HOOK.h" />
-    <ClInclude Include="GUI\Widget\HEADER.h" />
-    <ClInclude Include="GUI\Widget\HEADER_Private.h" />
-    <ClInclude Include="GUI\Widget\LISTBOX.h" />
-    <ClInclude Include="GUI\Widget\LISTBOX_Private.h" />
-    <ClInclude Include="GUI\Widget\LISTVIEW.h" />
-    <ClInclude Include="GUI\Widget\LISTVIEW_Private.h" />
-    <ClInclude Include="GUI\Widget\MENU.h" />
-    <ClInclude Include="GUI\Widget\MENU_Private.h" />
-    <ClInclude Include="GUI\Widget\MESSAGEBOX.h" />
-    <ClInclude Include="GUI\Widget\MULTIEDIT.h" />
-    <ClInclude Include="GUI\Widget\MULTIPAGE.h" />
-    <ClInclude Include="GUI\Widget\MULTIPAGE_Private.h" />
-    <ClInclude Include="GUI\Widget\PROGBAR.h" />
-    <ClInclude Include="GUI\Widget\PROGBAR_Private.h" />
-    <ClInclude Include="GUI\Widget\RADIO.h" />
-    <ClInclude Include="GUI\Widget\RADIO_Private.h" />
-    <ClInclude Include="GUI\Widget\SCROLLBAR.h" />
-    <ClInclude Include="GUI\Widget\SCROLLBAR_Private.h" />
-    <ClInclude Include="GUI\Widget\SLIDER.h" />
-    <ClInclude Include="GUI\Widget\SLIDER_Private.h" />
-    <ClInclude Include="GUI\Widget\TEXT.h" />
-    <ClInclude Include="GUI\Widget\TEXT_Private.h" />
-    <ClInclude Include="GUI\Widget\WIDGET.h" />
-    <ClInclude Include="GUI\Widget\WINDOW_Private.h" />
-    <ClInclude Include="GUI\WM\WM.h" />
-    <ClInclude Include="GUI\WM\WM_GUI.h" />
-    <ClInclude Include="GUI\WM\WM_Intern.h" />
-    <ClInclude Include="GUI\WM\WM_Intern_ConfDep.h" />
+    <CustomBuild Include="Simulation\dialogmain.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-I.\Config" "-I.\GUI\Core" "-I.\GUI\Widget" "-I.\GUI\WM" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtGui" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtCore" "-I.\release" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\mkspecs\win32-msvc2010" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing dialogmain.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB  "-I." "-I.\Config" "-I.\GUI\Core" "-I.\GUI\Widget" "-I.\GUI\WM" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtWidgets" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtGui" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtANGLE" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\include\QtCore" "-I.\debug" "-I.\..\..\qt\qt5.5.1_x64\5.5\msvc2013_64\mkspecs\win32-msvc2010" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing dialogmain.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
   </ItemGroup>
-  <PropertyGroup Label="Globals">
-    <ProjectGuid>{A4D9E914-6D68-4ADA-AA10-B821B75A426B}</ProjectGuid>
-    <RootNamespace>uCGUISimulation</RootNamespace>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>GUI\Core;GUI\MultiLayer;GUI\Widget;GUI\WM;Config;Simulation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <UndefinePreprocessorDefinitions>WIN32;%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
-  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="Simulation\dialogmain.ui">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_dialogmain.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" Qt5Version_x0020_x64="qt5.5.1_x64" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

@@ -18,8 +18,8 @@ Purpose     : Speed demo
 */
 
 #include <stdlib.h>  /* for rand */
-#include "GUI.H"
-#include "GUIDEMO.H"
+#include "GUI.h"
+#include "GUIDEMO.h"
 
 
 static const GUI_COLOR _aColor[8] = {

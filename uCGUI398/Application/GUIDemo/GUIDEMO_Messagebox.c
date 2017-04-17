@@ -18,8 +18,8 @@ Purpose     : Messagebox samples
 */
 
 #include <stddef.h>           /* needed for definition of NULL */
-#include "GUI.H"
-#include "GUIDEMO.H"
+#include "GUI.h"
+#include "GUIDEMO.h"
 #include "LCD_ConfDefaults.h"
 #include "WM.h"
 #include "Dialog.h"

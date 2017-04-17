@@ -17,8 +17,8 @@ Purpose     : Modify lookup table
 ----------------------------------------------------------------------
 */
 
-#include "GUI.H"
-#include "GUIDEMO.H"
+#include "GUI.h"
+#include "GUIDEMO.h"
 #include "LCD_ConfDefaults.h"  /* valid LCD configuration */
 
 /*********************************************************************

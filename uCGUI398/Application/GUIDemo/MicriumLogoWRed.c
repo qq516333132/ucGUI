@@ -15,7 +15,7 @@
 
 #include "stdlib.h"
 
-#include "GUI.H"
+#include "GUI.h"
 
 /*   Palette
 The following are the entries of the palette table.

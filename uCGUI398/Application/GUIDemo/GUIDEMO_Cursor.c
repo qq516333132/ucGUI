@@ -17,8 +17,8 @@ Purpose     : shows Cursor-API
 ----------------------------------------------------------------------
 */
 
-#include "GUI.H"
-#include "GUIDEMO.H"
+#include "GUI.h"
+#include "GUIDEMO.h"
 
 #if (GUI_SUPPORT_CURSOR | GUI_SUPPORT_TOUCH)
 
