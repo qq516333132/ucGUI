@@ -1,8 +1,10 @@
+#include <time.h>
 #include "GUI_X.h"
 #include <QMutex>
 #include <QThread>
+#include <QTime>
 //#include <windows.h>
-#include <unistd.h>
+//#include <unistd.h>
 
 /*********************************************************************
 *
@@ -19,7 +21,8 @@ void GUI_X_Init(void)
 */
 void GUI_X_ExecIdle(void)
 {
-    usleep(1000);
+    QThread::msleep(1);
+    //usleep(1000);
     //Sleep(1);
 };
 
@@ -34,19 +37,20 @@ Some timing dependent routines of uC/GUI require a GetTime
 and delay funtion. Default time unit (tick), normally is
 1 ms.
 */
-int StartTime;  //程序开始运行时的时间 该时间为从系统开启算起所经过的时间 单位为毫秒
+unsigned __int64 StartTime;  //程序开始运行时的时间 该时间为从系统开启算起所经过的时间 单位为毫秒
 int GUI_X_GetTime(void) 
 {
     time_t t;
     time(&t);
 
-    return (t - StartTime);
+    return (t*1000 + QTime::currentTime().msec() - StartTime);
 }
 
 void GUI_X_Delay(int Period) 
 {
+    QThread::msleep(Period);
     //Sleep(Period);
-    usleep(1000*Period);
+    //usleep(1000*Period);
 }
 
 /*********************************************************************
@@ -65,8 +69,9 @@ void GUI_X_InitOS(void)
 {
     time_t t;
     time(&t);
+
     //StartTime = timeGetTime();  //需要添加winmm.lib库
-    StartTime = t;
+    StartTime = t*1000 + QTime::currentTime().msec();
 	//创建一个互斥量对象
     //hMutex = CreateMutex(NULL, 0, "GUI Simulation - Mutex");
     hMutex = new QMutex();

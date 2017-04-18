@@ -186,10 +186,33 @@ DialogMain::DialogMain(QWidget *parent) :
 
 	timer->start();
 
-    connect(ui->label, SIGNAL(mousePressEvent(QMouseEvent*)), this, SLOT(labelPressEvent()));
+    connect(ui->pushButtonUp, &QPushButton::clicked, this, &DialogMain::slotDirectionKeyPress);
+    connect(ui->pushButtonDown, &QPushButton::clicked, this, &DialogMain::slotDirectionKeyPress);
+    connect(ui->pushButtonLeft, &QPushButton::clicked, this, &DialogMain::slotDirectionKeyPress);
+    connect(ui->pushButtonRight, &QPushButton::clicked, this, &DialogMain::slotDirectionKeyPress);
 }
 
 DialogMain::~DialogMain()
 {
     delete ui;
+}
+
+void DialogMain::slotDirectionKeyPress(bool checked)
+{
+    if(sender() == ui->pushButtonUp)
+    {
+        GUI_StoreKeyMsg(GUI_KEY_UP, 1);
+    }
+    else if(sender() == ui->pushButtonDown)
+    {
+        GUI_StoreKeyMsg(GUI_KEY_DOWN, 1);
+    }
+    else if(sender() == ui->pushButtonLeft)
+    {
+        GUI_StoreKeyMsg(GUI_KEY_LEFT, 1);
+    }
+    else if(sender() == ui->pushButtonRight)
+    {
+        GUI_StoreKeyMsg(GUI_KEY_RIGHT, 1);
+    }
 }

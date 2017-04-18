@@ -743,7 +743,7 @@ SOURCES += Application/GUIDemo/GUIDEMO.c \
 	Simulation/dialogmain.cpp
 
 win32{
-SOURCES += Simulation/GUI_X_Win.c
+SOURCES += Simulation/GUI_X_Qt.cpp
 }
 
 linux{

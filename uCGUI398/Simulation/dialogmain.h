@@ -20,6 +20,8 @@ public:
 
     void mousePressEvent(QMouseEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
+
+    void slotDirectionKeyPress(bool checked = false);
 private:
     Ui::DialogMain *ui;
 
