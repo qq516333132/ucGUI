@@ -80,18 +80,18 @@ extern "C" {
 GUI_PID_STATE Touch_Status;
 void Touch_Pressed(int x, int y)  //触摸按下  x,y 为按下是的鼠标在窗体中的坐标
 {
-	Touch_Status.Pressed = 1;
-	Touch_Status.x = x;
-	Touch_Status.y = y;
-	GUI_TOUCH_StoreStateEx(&Touch_Status);
+    Touch_Status.Pressed = 1;
+    Touch_Status.x = x;
+    Touch_Status.y = y;
+    GUI_TOUCH_StoreStateEx(&Touch_Status);
 }
 
 void Touch_Release(void)  //触摸释放
 {
-	Touch_Status.Pressed = 0;
-	Touch_Status.x = -1;
-	Touch_Status.y = -1;
-	GUI_TOUCH_StoreStateEx(&Touch_Status);
+    Touch_Status.Pressed = 0;
+    Touch_Status.x = -1;
+    Touch_Status.y = -1;
+    GUI_TOUCH_StoreStateEx(&Touch_Status);
 }
 
 
@@ -102,10 +102,10 @@ private:
 
 public:
 
-	MainForm()
-	{
+    MainForm()
+    {
 
-	}
+    }
 };
 
 #ifdef __cplusplus
@@ -125,11 +125,20 @@ public:
 };
 
 
-void DialogMain::labelPressEvent(QMouseEvent *ev)
+
+void DialogMain::mousePressEvent(QMouseEvent *e)
 {
     Touch_Status.Pressed = 1;
-    Touch_Status.x = ev->x();
-    Touch_Status.y = ev->y();
+    Touch_Status.x = e->x();
+    Touch_Status.y = e->y();
+    GUI_TOUCH_StoreStateEx(&Touch_Status);
+}
+
+void DialogMain::mouseReleaseEvent(QMouseEvent *e)
+{
+    Touch_Status.Pressed = 0;
+    Touch_Status.x = e->x();
+    Touch_Status.y = e->y();
     GUI_TOUCH_StoreStateEx(&Touch_Status);
 }
 

@@ -18,6 +18,8 @@ public:
     void timerAction();
     void labelPressEvent(QMouseEvent *ev);
 
+    void mousePressEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 private:
     Ui::DialogMain *ui;
 
