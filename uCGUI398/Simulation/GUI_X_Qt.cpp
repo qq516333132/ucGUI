@@ -3,6 +3,8 @@
 #include <QMutex>
 #include <QThread>
 #include <QTime>
+#include <stdint.h>
+#include <inttypes.h>
 //#include <windows.h>
 //#include <unistd.h>
 
@@ -37,7 +39,7 @@ Some timing dependent routines of uC/GUI require a GetTime
 and delay funtion. Default time unit (tick), normally is
 1 ms.
 */
-unsigned __int64 StartTime;  //程序开始运行时的时间 该时间为从系统开启算起所经过的时间 单位为毫秒
+uint64_t StartTime;  //程序开始运行时的时间 该时间为从系统开启算起所经过的时间 单位为毫秒
 int GUI_X_GetTime(void) 
 {
     time_t t;
