@@ -3,6 +3,10 @@
 Win10 WSL 安装arm linux工具链:
 sudo apt-get install gcc-arm-linux-gnueabi
 
+Ubuntu14.04 FrameBuffer ucGUI模拟器截图:
+![image](https://raw.githubusercontent.com/qq516333132/ucGUI/master/uCGUI398/Doc/ScreenShots/Ubuntu_FrameBuffer.png)
+
+
 欢迎加入QQ群讨论:
 ![image](https://raw.githubusercontent.com/qq516333132/ucGUI/master/uCGUI398/Doc/ScreenShots/qqgroup.jpg)
 
