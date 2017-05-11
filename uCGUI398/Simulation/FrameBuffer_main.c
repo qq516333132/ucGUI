@@ -4,13 +4,14 @@
 #include <fcntl.h>
 #include <linux/fb.h>
 #include <sys/mman.h>
+#include <stdint.h>
 
 #include "GUI.h"
 #include "LCDConf.h"
 
 //unsigned int LCD_Buffer[LCD_YSIZE][LCD_XSIZE];
 
-unsigned int *LCD_Buffer;
+uint16_t *LCD_Buffer;
 
 #ifdef __cplusplus
 extern "C" {
@@ -67,8 +68,8 @@ void LCDSIM_Init(void)
         printf("Error: failed to map framebuffer device to memory.\n");
         exit(4);
     }
-    LCD_Buffer = (unsigned int*)fbp;
-    printf("The framebuffer device was mapped to memory successfully.\n");
+    LCD_Buffer = (uint16_t*)fbp;
+    printf("The framebuffer device was mapped to memory successfully. screensize=%d\n", screensize);
 
     //set to black color first
     memset(fbp, 0, screensize);
