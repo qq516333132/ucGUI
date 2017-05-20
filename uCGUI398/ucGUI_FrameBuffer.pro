@@ -15,6 +15,10 @@ HEADERS += Config/GUIConf.h
 HEADERS += Config/GUITouchConf.h
 HEADERS += Config/LCDConf.h
 
+LIBS += -L/opt/nuc970bsp/applications/tslib-1.1/install/lib/ -lts -pthread -lpthread -lthread_db
+
+HEADERS += /opt/nuc970bsp/applications/tslib-1.1/install/include/
+
 SOURCES += Application/GUIDemo/GUIDEMO_Automotive.c
 SOURCES += Application/GUIDemo/GUIDEMO_Bitmap.c
 SOURCES += Application/GUIDemo/GUIDEMO_Bitmap4bpp.c
@@ -79,7 +83,7 @@ SOURCES += GUI/ConvertColor/LCDPM888.c
 SOURCES += GUI/ConvertMono/LCDP0.c
 SOURCES += GUI/ConvertMono/LCDP2.c
 SOURCES += GUI/ConvertMono/LCDP4.c
-SOURCES += GUI/Core/LCD_L0_Generic.c
+#SOURCES += GUI/Core/LCD_L0_Generic.c
 SOURCES += GUI/Core/GUI2DLib.c
 SOURCES += GUI/Core/GUIAlloc.c
 SOURCES += GUI/Core/GUIArc.c
@@ -744,7 +748,10 @@ SOURCES +=
 SOURCES += Application/GUIDemo/GUIDEMO.c \
         Simulation/FrameBuffer_main.c
 
-linux{
-SOURCES += Simulation/GUI_X_Qt.cpp
+unix{
+SOURCES += Simulation/GUI_X_Linux.c
 }
 
+CONFIG += static
+
+CONFIG += debug

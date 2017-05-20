@@ -5,13 +5,15 @@
 #include <linux/fb.h>
 #include <sys/mman.h>
 #include <stdint.h>
+#include <string.h>
+#include <tslib.h>
 
 #include "GUI.h"
 #include "LCDConf.h"
 
 //unsigned int LCD_Buffer[LCD_YSIZE][LCD_XSIZE];
 
-uint16_t *LCD_Buffer;
+static uint16_t *LCD_Buffer;
 
 #ifdef __cplusplus
 extern "C" {
@@ -54,7 +56,7 @@ void LCDSIM_Init(void)
     }
 
     printf("sizeof(unsigned short) = %d\n", sizeof(unsigned short));
-    printf("%dx%d, %dbpp\n", vinfo.xres, vinfo.yres, vinfo.bits_per_pixel );
+    printf("%dx%d, %dbpp,LCD_XSIZE=%d, LCD_YSIZE=%d\n", vinfo.xres, vinfo.yres, vinfo.bits_per_pixel, LCD_XSIZE, LCD_YSIZE);
     printf("xoffset:%d, yoffset:%d, line_length: %d\n", vinfo.xoffset, vinfo.yoffset, finfo.line_length );
 
     // Figure out the size of the screen in bytes
@@ -72,12 +74,12 @@ void LCDSIM_Init(void)
     printf("The framebuffer device was mapped to memory successfully. screensize=%d\n", screensize);
 
     //set to black color first
-    memset(fbp, 0, screensize);
+    memset((void*)fbp, 0, screensize);
 }
 
 void LCDSIM_SetPixelIndex(int x, int y, int Index, int LayerIndex)
 {
-    LCD_Buffer[y*800+x] = Index;
+    LCD_Buffer[y*LCD_XSIZE+x] = Index;
 }
 
 void LCDSIM_FillRect(int x0, int y0, int x1, int y1, int Index, int LayerIndex)
@@ -88,7 +90,7 @@ void LCDSIM_FillRect(int x0, int y0, int x1, int y1, int Index, int LayerIndex)
 
 int LCDSIM_GetPixelIndex(int x, int y, int LayerIndex)
 {
-    return LCD_Buffer[y*800+x];
+    return LCD_Buffer[y*LCD_XSIZE+x];
 }
 
 void LCDSIM_SetLUTEntry(U8 Pos, LCD_COLOR color, int LayerIndex)
@@ -113,8 +115,69 @@ void Touch_Release(void)  //Ž¥ÃþÊÍ·Å
     GUI_TOUCH_StoreStateEx(&Touch_Status);
 }
 
+
+
+void GUI_TOUCH_X_ActivateX(void) {
+    int xxx = 10;
+}
+
+void GUI_TOUCH_X_ActivateY(void) {
+    int xxx = 10;
+}
+
+extern struct tsdev *ts;
+
+int  GUI_TOUCH_X_MeasureX(void)
+{
+    struct ts_sample samp;
+    int ret;
+
+    ret = ts_read(ts, &samp, 1);
+
+    if (ret < 0) {
+        perror("ts_read");
+//        exit(1);
+    }
+
+//    if (ret != 1)
+//        continue;
+
+    //printf("%ld.%06ld: %6d %6d %6d\n", samp.tv.tv_sec, samp.tv.tv_usec, samp.x, samp.y, samp.pressure);
+    return samp.x;
+}
+
+int  GUI_TOUCH_X_MeasureY(void)
+{
+    struct ts_sample samp;
+    int ret;
+
+    ret = ts_read(ts, &samp, 1);
+
+    if (ret < 0) {
+        perror("ts_read");
+//        exit(1);
+    }
+
+//    if (ret != 1)
+//        continue;
+
+    //printf("%ld.%06ld: %6d %6d %6d\n", samp.tv.tv_sec, samp.tv.tv_usec, samp.x, samp.y, samp.pressure);
+    return samp.y;
+}
+
+
 int main(int argc, char* argv[])
 {
+    int i = 0;
+
+    printf("LINE%d \n", __LINE__);
+
+    init_touchscreen();//
+
+    printf("LINE%d \n", __LINE__);
+
+    int j = 0;
+
     while(1)
     {
         MainTask();  //GUI Demo

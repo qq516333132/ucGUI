@@ -44,6 +44,7 @@ void GUI_Delay(int Period) {
   GUI_ASSERT_NO_LOCK();
   while (tRem = EndTime- GUI_GetTime(), tRem>0) {
     GUI_Exec();
+    GUI_TOUCH_Exec();
     GUI_X_Delay((tRem >5) ? 5 : tRem);
   }
 }

@@ -64,7 +64,12 @@ extern "C" {
 
 	int LCDSIM_GetPixelIndex(int x, int y, int LayerIndex)
 	{
+#if (LCD_BITSPERPIXEL == 16) && (LCD_FIXEDPALETTE == 565)
+        int pixelValue = LCD_Buffer[y][x];
+        return ((pixelValue & 0xF80000) >> 8) | ((pixelValue & 0x00FC00) >> 4) | ((pixelValue & 0x0000F8) >> 3);
+#else
 		return LCD_Buffer[y][x];
+#endif
 	}
 
 	void LCDSIM_SetLUTEntry(U8 Pos, LCD_COLOR color, int LayerIndex)
@@ -77,37 +82,6 @@ extern "C" {
 #endif
 
 
-GUI_PID_STATE Touch_Status;
-void Touch_Pressed(int x, int y)  //触摸按下  x,y 为按下是的鼠标在窗体中的坐标
-{
-    Touch_Status.Pressed = 1;
-    Touch_Status.x = x;
-    Touch_Status.y = y;
-    GUI_TOUCH_StoreStateEx(&Touch_Status);
-}
-
-void Touch_Release(void)  //触摸释放
-{
-    Touch_Status.Pressed = 0;
-    Touch_Status.x = -1;
-    Touch_Status.y = -1;
-    GUI_TOUCH_StoreStateEx(&Touch_Status);
-}
-
-
-class MainForm : public QWidget
-{
-private:
-
-
-public:
-
-    MainForm()
-    {
-
-    }
-};
-
 #ifdef __cplusplus
 extern "C" {
 	extern void MainTask(void);
@@ -118,16 +92,18 @@ extern "C" {
 class GUIThread : public QThread
 {
 public:
-	void run()
-	{
-		MainTask();  //GUI Demo
-	}
+    void run()
+    {
+        MainTask();  //GUI Demo
+    }
 };
 
 
 
 void DialogMain::mousePressEvent(QMouseEvent *e)
 {
+    GUI_PID_STATE Touch_Status;
+
     Touch_Status.Pressed = 1;
     Touch_Status.x = e->x();
     Touch_Status.y = e->y();
@@ -136,6 +112,8 @@ void DialogMain::mousePressEvent(QMouseEvent *e)
 
 void DialogMain::mouseReleaseEvent(QMouseEvent *e)
 {
+    GUI_PID_STATE Touch_Status;
+
     Touch_Status.Pressed = 0;
     Touch_Status.x = e->x();
     Touch_Status.y = e->y();

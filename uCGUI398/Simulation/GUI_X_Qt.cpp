@@ -115,7 +115,22 @@ void GUI_X_ErrorOut(const char *s)     { /*SIM_ErrorOut(s);*/ }
 
 
 
+void GUI_TOUCH_X_ActivateX(void) {
+    int xxx = 10;
+}
 
+void GUI_TOUCH_X_ActivateY(void) {
+    int xxx = 10;
+}
 
+int  GUI_TOUCH_X_MeasureX(void)
+{
+    int xxx = 100;
+    return xxx;
+}
 
-
+int  GUI_TOUCH_X_MeasureY(void)
+{
+    int yyy = 100;
+    return yyy;
+}

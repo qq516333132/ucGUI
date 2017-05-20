@@ -1,7 +1,8 @@
 ### build for ARM9 linux 
-export PATH=/usr/local/arm_linux_4.8/bin:$PATH
+export PATH=/usr/local/arm-2014.05/bin/:$PATH
 
-arm-linux-gcc -g -static -lpthread -lm  -L/usr/local/arm_linux_4.8/usr/lib/   \
+arm-none-linux-gnueabi-gcc -g -static -lpthread -lm  -L/opt/nuc970bsp/applications/tslib-1.1/install/lib/ -lts  \
+-I/opt/nuc970bsp/applications/tslib-1.1/install/include \
 -I./Config/ -I./GUI/Core/ -I./GUI/Widget/ -I./GUI/WM/ \
 ./Simulation/FrameBuffer_main.c \
 ./Simulation/GUI_X_Linux.c \
@@ -145,7 +146,6 @@ arm-linux-gcc -g -static -lpthread -lm  -L/usr/local/arm_linux_4.8/usr/lib/   \
 ./GUI/Core/GUI_DispHex.c \
 ./GUI/Core/GUI_Color2VisColor.c \
 ./GUI/Core/GUI_GetDispPos.c \
-./GUI/Core/LCD_L0_Generic.c \
 ./GUI/Core/GUIRealloc.c \
 ./GUI/Core/GUI_CursorCrossM.c \
 ./GUI/Core/GUI_InitLUT.c \
@@ -728,5 +728,6 @@ arm-linux-gcc -g -static -lpthread -lm  -L/usr/local/arm_linux_4.8/usr/lib/   \
 ./Application/GUIDemo/GUIDEMO_ColorList.c \
 ./Application/GUIDemo/GUIDEMO_Bitmap.c \
 ./Application/GUIDemo/GUIDEMO_Dialog.c \
+-L/opt/nuc970bsp/applications/tslib-1.1/install/lib/ -lts  -ldl \
 -lm -lpthread -o ucGUI
 

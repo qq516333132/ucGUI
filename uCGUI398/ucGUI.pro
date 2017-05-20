@@ -754,4 +754,8 @@ FORMS += \
 	Simulation/dialogmain.ui
 
 HEADERS += \
-	Simulation/dialogmain.h
+        Simulation/dialogmain.h \
+        Config/GUIConf.h  \
+        Config/GUITouchConf.h  \
+        Config/LCDConf.h
+
